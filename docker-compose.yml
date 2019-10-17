@@ -1,0 +1,9 @@
+version: '3'
+services:
+  cassandra1:
+    image: cassandra:latest
+    container_name: cassandra1
+    ports:
+      - 32779:9042
+    volumes:
+      - ./docker:/home/cassandra
