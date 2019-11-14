@@ -7,4 +7,4 @@
 ### cqlsh起動
 直接CQLを叩きたい場合は以下を実行する
 
-``docker run -it -v `pwd`/cql:/home/cassandra --network swing-gen_default --rm cassandra cqlsh cassandra1``
+``docker run -it -v `pwd`/cql:/home/cassandra --network cassandra-play-with-spring_default --rm cassandra cqlsh cassandra1``
