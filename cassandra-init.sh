@@ -1,1 +1,1 @@
-docker run -it -v `pwd`/cql:/home/cassandra --network swing-gen_default --rm cassandra cqlsh cassandra1 -f /home/cassandra/init-database.cql
+docker run -it -v `pwd`/cql:/home/cassandra --network cassandra-play-with-spring_default --rm cassandra cqlsh cassandra1 -f /home/cassandra/init-database.cql
