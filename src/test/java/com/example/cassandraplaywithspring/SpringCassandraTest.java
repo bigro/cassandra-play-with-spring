@@ -1,5 +1,6 @@
 package com.example.cassandraplaywithspring;
 
+import com.example.cassandraplaywithspring.model.PersonalInfo;
 import com.example.cassandraplaywithspring.model.User;
 import com.example.cassandraplaywithspring.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @ExtendWith(SpringExtension.class)
@@ -19,7 +21,8 @@ public class SpringCassandraTest {
 
     @Test
     void cassandraのRepositoryを使えること() {
-        User user = new User(UUID.randomUUID(), "John Doe", 9999);
+        PersonalInfo personalInfo = new PersonalInfo(LocalDate.now(), "日本", 50, 170);
+        User user = new User(UUID.randomUUID(), "John Doe", 9999, personalInfo);
         userRepository.insert(user);
     }
 }
