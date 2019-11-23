@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.UUID;
 
 @ExtendWith(SpringExtension.class)
@@ -22,7 +23,8 @@ public class SpringCassandraTest {
     @Test
     void cassandraのRepositoryを使えること() {
         PersonalInfo personalInfo = new PersonalInfo(LocalDate.now(), "日本", 50, 170);
-        User user = new User(UUID.randomUUID(), "John Doe", 9999, personalInfo);
+        Map<Integer, String> teams = Map.of(1, "チーム1", 2, "チーム2");
+        User user = new User(UUID.randomUUID(), "John Doe", 9999, personalInfo, teams);
         userRepository.insert(user);
     }
 }

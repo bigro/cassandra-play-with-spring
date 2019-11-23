@@ -6,6 +6,7 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.util.Map;
 import java.util.UUID;
 
 @Table("users")
@@ -25,10 +26,14 @@ public class User {
     @CassandraType(type = DataType.Name.UDT, userTypeName = "basic_info")
     private PersonalInfo personalInfo;
 
-    public User(UUID userId, String name, int strength, PersonalInfo personalInfo) {
+    @Column("teams")
+    Map<Integer, String> teams;
+
+    public User(UUID userId, String name, int strength, PersonalInfo personalInfo, Map<Integer, String> teams) {
         this.userId = userId;
         this.name = name;
         this.strength = strength;
         this.personalInfo = personalInfo;
+        this.teams = teams;
     }
 }
